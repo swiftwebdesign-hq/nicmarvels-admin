@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="theme-color" content="#241d17" />
+  <title>Admin | Niksmarvel Fashion Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body class="admin-page">
+  <div class="top-rule" aria-hidden="true"></div>
+  <main class="admin-shell">
+
+    <section id="loginView" class="login-view" aria-labelledby="loginTitle">
+      <div class="login-brand">
+        <img src="assets/logo.png" alt="Niksmarvel Fashion Academy" />
+      </div>
+      <div class="login-layout">
+        <div class="login-intro-panel" aria-hidden="true">
+          <p class="eyebrow light"><span class="eyebrow-line"></span> PRIVATE STAFF PORTAL</p>
+          <h1>Stay on top of<br /><em>student applications.</em></h1>
+          <p>Review new applications, open full student records and keep admissions moving from one private workspace.</p>
+          <div class="intro-rule"></div>
+          <span>For the academy owner and authorised staff.</span>
+        </div>
+
+        <div class="login-card">
+          <div class="login-card-heading">
+            <p class="eyebrow"><span class="eyebrow-line"></span> WELCOME BACK</p>
+            <h2 id="loginTitle">Sign in to admin</h2>
+            <p>Sign in with your academy account to manage applications.</p>
+          </div>
+          <div id="setupNotice" class="setup-notice" role="status" hidden>
+            <strong>Portal setup required</strong>
+            <span>Connect the academy's private database and sign-in account before using this portal.</span>
+          </div>
+          <form id="loginForm" class="login-form">
+            <label class="field">
+              <span>Email address</span>
+              <input name="email" type="email" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" required />
+            </label>
+            <label class="field">
+              <span>Password</span>
+              <input name="password" type="password" autocomplete="current-password" required />
+            </label>
+            <button id="loginButton" class="submit-button" type="submit" disabled>
+              <span>Sign in</span><span aria-hidden="true">→</span>
+            </button>
+            <p id="loginMessage" class="form-message" aria-live="polite" role="alert"></p>
+          </form>
+          <p class="login-footnote"><span class="lock-mark" aria-hidden="true">●</span> Private workspace · staff access only</p>
+        </div>
+      </div>
+      <a class="back-link" href="#" data-public-form-link>← Back to enrollment form</a>
+      <footer class="site-credit" aria-label="Website credit">
+        <span>Designed by <strong>SwiftWebDesign</strong></span>
+        <span>© 2026 Niksmarvel Fashion Academy. All rights reserved.</span>
+      </footer>
+    </section>
+
+    <section id="dashboardView" class="dashboard-view" hidden>
+      <aside id="adminSidebar" class="admin-sidebar" aria-label="Admin navigation">
+        <div>
+          <a class="brand" href="#applications" aria-label="Niksmarvel Fashion Academy applications">
+            <span class="brand-mark">N</span>
+            <span><span class="brand-name">Niksmarvel</span><span class="brand-subtitle">FASHION ACADEMY</span></span>
+          </a>
+          <div class="sidebar-label">WORKSPACE</div>
+          <nav>
+            <a class="sidebar-link active" href="#applications" aria-current="page">
+              <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><rect x="3" y="3" width="5" height="5" rx="1"></rect><rect x="12" y="3" width="5" height="5" rx="1"></rect><rect x="3" y="12" width="5" height="5" rx="1"></rect><rect x="12" y="12" width="5" height="5" rx="1"></rect></svg></span><span>Applications</span><span id="sidebarNewBadge" class="nav-badge" hidden>0</span>
+            </a>
+          </nav>
+        </div>
+        <div class="sidebar-bottom">
+          <div class="staff-card">
+            <span class="staff-avatar" aria-hidden="true">A</span>
+            <span><strong>Academy staff</strong><small>Private access</small></span>
+          </div>
+          <button id="logoutButton" class="signout-button" type="button"><span aria-hidden="true">↪</span> Sign out</button>
+        </div>
+      </aside>
+
+      <div id="sidebarOverlay" class="sidebar-overlay" hidden></div>
+
+      <div class="dashboard-main">
+        <header class="dashboard-topbar">
+          <button id="menuButton" class="icon-button menu-button" type="button" aria-label="Open navigation" aria-controls="adminSidebar" aria-expanded="false">☰</button>
+          <div class="topbar-context"><span class="crumb">ADMIN /</span><strong>Applications</strong></div>
+          <div class="user-chip">
+            <span class="user-dot" aria-hidden="true"></span>
+            <span id="signedInEmail">Academy staff</span>
+          </div>
+        </header>
+
+        <main class="dashboard-content" id="applications">
+          <div class="dashboard-title-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> ADMISSIONS</p>
+              <h1>Applications</h1>
+              <p class="dashboard-subtitle">Review, filter and process student applications in one place.</p>
+            </div>
+            <div class="last-refresh" aria-live="polite"><span>Last refreshed</span><strong id="lastRefresh">—</strong></div>
+          </div>
+
+          <section class="stats-grid" aria-label="Application summary">
+            <article class="stat-card">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><circle cx="10" cy="10" r="6.5"></circle><path d="M10 7v6M7 10h6"></path></svg></span>
+              <div><span class="stat-label">Total applications</span><strong id="statTotal">0</strong><small>All received</small></div>
+            </article>
+            <article class="stat-card stat-card-accent">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M10 2.8l1.8 5.4 5.4 1.8-5.4 1.8-1.8 5.4-1.8-5.4-5.4-1.8 5.4-1.8z"></path></svg></span>
+              <div><span class="stat-label">New applications</span><strong id="statNew">0</strong><small>Need attention</small></div>
+            </article>
+            <article class="stat-card">
+              <span class="stat-icon" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M4.2 10.4l3.5 3.5 8.1-8.1"></path></svg></span>
+              <div><span class="stat-label">Processed</span><strong id="statProcessed">0</strong><small>Completed</small></div>
+            </article>
+          </section>
+
+          <div class="section-heading">
+            <div>
+              <h2>Student applications</h2>
+              <p id="recordsSummary">No records to display</p>
+            </div>
+          </div>
+
+          <div class="table-tools">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="searchInput" type="search" placeholder="Search name, email or program" aria-label="Search applicants by name, email or program" />
+            </label>
+            <label class="filter-control">
+              <span class="sr-only">Filter applications</span>
+              <select id="statusFilter" aria-label="Filter applications by status">
+                <option value="all">All applications</option>
+                <option value="new">New</option>
+                <option value="processed">Processed</option>
+              </select>
+            </label>
+            <button id="refreshButton" class="outline-button" type="button"><span aria-hidden="true" class="button-icon"><svg viewBox="0 0 20 20" focusable="false"><path d="M16 8a6.2 6.2 0 0 0-10.8-2L3.8 7.5M4 3.5v4h4"></path><path d="M4 12a6.2 6.2 0 0 0 10.8 2l1.4-1.5M16 16.5v-4h-4"></path></svg></span><span>Refresh</span></button>
+          </div>
+
+          <div class="records-card">
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only">Student enrollment applications</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">STUDENT</th>
+                    <th scope="col">PROGRAM</th>
+                    <th scope="col">SUBMITTED</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col"><span class="sr-only">Action</span></th>
+                  </tr>
+                </thead>
+                <tbody id="recordsBody">
+                  <tr><td class="empty-cell" colspan="5">Sign in to view private applications.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="records-foot"><span id="recordsFootCount">0 applications</span><span>Private information · academy access only</span></div>
+          </div>
+        </main>
+      </div>
+      <footer class="site-credit dashboard-credit" aria-label="Website credit">
+        <span>Designed by <strong>SwiftWebDesign</strong></span>
+        <span>© 2026 Niksmarvel Fashion Academy. All rights reserved.</span>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="detailDialog" class="detail-dialog" aria-labelledby="detailTitle">
+    <div class="dialog-head">
+      <div><p class="eyebrow"><span class="eyebrow-line"></span> APPLICATION DETAIL</p><h2 id="detailTitle">Student record</h2></div>
+      <button id="closeDialog" class="close-button" type="button" aria-label="Close application detail">×</button>
+    </div>
+    <div id="detailBody" class="detail-body"></div>
+    <div class="dialog-actions">
+      <button id="markProcessedButton" class="submit-button" type="button">Mark as processed <span aria-hidden="true" class="button-icon"><svg viewBox="0 0 20 20" focusable="false"><path d="M4 10h11M10.5 5.5L15 10l-4.5 4.5"></path></svg></span></button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="config.js"></script>
+  <script type="module" src="admin.bundle.js"></script>
+</body>
+</html>
